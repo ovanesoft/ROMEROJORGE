@@ -123,6 +123,14 @@ img {
     margin: 0 auto;
 }
 
+.logo-main .main-logo {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    filter: brightness(1.1);
+}
+
 .logo-main h1 {
     font-size: 4rem;
     font-weight: 700;
@@ -648,6 +656,10 @@ img {
         padding: 0 30px;
     }
 
+    .logo-main .main-logo {
+        max-width: 500px;
+    }
+
     .logo-main h1 {
         font-size: 3rem;
     }
@@ -720,6 +732,11 @@ img {
     .hero {
         padding: 80px 20px 40px;
         min-height: 90vh;
+    }
+
+    .logo-main .main-logo {
+        max-width: 400px;
+        margin-bottom: 1.5rem;
     }
 
     .logo-main h1 {
@@ -847,6 +864,11 @@ img {
         padding: 70px 15px 30px;
     }
 
+    .logo-main .main-logo {
+        max-width: 300px;
+        margin-bottom: 1.25rem;
+    }
+
     .logo-main h1 {
         font-size: 2rem;
         letter-spacing: 1px;
@@ -943,6 +965,10 @@ img {
 
 /* Extra Small Mobile */
 @media (max-width: 360px) {
+    .logo-main .main-logo {
+        max-width: 250px;
+    }
+
     .logo-main h1 {
         font-size: 1.75rem;
     }
