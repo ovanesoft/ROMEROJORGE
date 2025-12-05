@@ -320,6 +320,11 @@ img {
     justify-content: center;
 }
 
+.area-btn {
+    margin-top: 2rem;
+    display: inline-block;
+}
+
 /* Cómo Trabajamos Section */
 .como-trabajamos {
     padding: 100px 20px;
