@@ -320,14 +320,14 @@ img {
 
 .area-card {
     background: var(--color-white);
-    padding: 3rem 2rem 2.5rem;
+    padding: 3rem 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     transition: var(--transition);
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    min-height: 420px;
 }
 
 .area-card:hover {
@@ -351,24 +351,19 @@ img {
     color: var(--color-text-light);
     margin-bottom: 1rem;
     line-height: 1.7;
-    flex-grow: 1;
+    flex: 1;
 }
 
-.area-visual {
-    background: var(--color-gray-light);
-    padding: 2rem;
-    border-radius: 8px;
-    min-height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
+.area-description:last-of-type {
+    margin-bottom: 2rem;
 }
 
 .area-btn {
     margin-top: auto;
     display: inline-block;
     width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1rem;
 }
 
 /* Cómo Trabajamos Section */
@@ -786,6 +781,7 @@ img {
 
     .area-card {
         padding: 2.5rem 2rem;
+        min-height: auto;
     }
 
     .area-card h3 {
@@ -880,14 +876,14 @@ img {
         font-size: 1rem !important;
     }
 
-    .team-showcase,
-    .area-visual {
+    .team-showcase {
         padding: 1.5rem;
         min-height: 150px;
     }
 
     .area-card {
         padding: 2rem 1.5rem;
+        min-height: auto;
     }
 
     .step-card {
