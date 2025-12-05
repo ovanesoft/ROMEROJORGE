@@ -273,9 +273,38 @@ img {
 .areas-negocio h2 {
     font-size: 3rem;
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     color: var(--color-primary);
     letter-spacing: 2px;
+}
+
+.areas-intro-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: var(--color-white);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 4rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.areas-intro-card h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.areas-intro-card p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+    color: var(--color-white);
+    opacity: 0.95;
+}
+
+.areas-intro-card p:last-child {
+    margin-bottom: 0;
 }
 
 .areas-grid {
@@ -595,6 +624,18 @@ img {
         font-size: 1.3rem;
     }
 
+    .areas-intro-card {
+        padding: 2.5rem 2rem;
+    }
+
+    .areas-intro-card h3 {
+        font-size: 2rem;
+    }
+
+    .areas-intro-card p {
+        font-size: 1.1rem;
+    }
+
     .content-grid,
     .sumate-content {
         grid-template-columns: 1fr;
@@ -701,6 +742,20 @@ img {
         min-height: 200px;
     }
 
+    /* Areas Intro Card */
+    .areas-intro-card {
+        padding: 2rem 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .areas-intro-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .areas-intro-card p {
+        font-size: 1rem;
+    }
+
     /* Areas Grid */
     .areas-grid {
         grid-template-columns: 1fr;
@@ -784,6 +839,19 @@ img {
 
     h4 {
         font-size: 1.1rem !important;
+    }
+
+    .areas-intro-card {
+        padding: 1.5rem 1.25rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .areas-intro-card h3 {
+        font-size: 1.4rem !important;
+    }
+
+    .areas-intro-card p {
+        font-size: 0.95rem !important;
     }
 
     .team-showcase,
