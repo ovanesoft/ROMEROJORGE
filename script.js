@@ -46,15 +46,51 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
+// Optimized scroll handler with throttling
+let ticking = false;
+let lastScrollY = 0;
+
+function handleScroll() {
+    lastScrollY = window.scrollY;
+
+    // Navbar background
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
+    if (lastScrollY > 50) {
         navbar.style.background = 'rgba(26, 26, 26, 0.98)';
     } else {
         navbar.style.background = 'rgba(26, 26, 26, 0.95)';
     }
-});
+
+    // Active navigation link
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    let current = '';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (lastScrollY >= sectionTop - 100) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.style.borderBottomColor = 'transparent';
+        if (link.getAttribute('href') === `#${current}`) {
+            link.style.borderBottomColor = 'var(--color-accent)';
+        }
+    });
+
+    ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            handleScroll();
+        });
+        ticking = true;
+    }
+}, { passive: true });
 
 // Form submission handler
 const contactForm = document.getElementById('contactForm');
@@ -82,57 +118,26 @@ contactForm.addEventListener('submit', (e) => {
     contactForm.reset();
 });
 
-// Intersection Observer for fade-in animations
+// Optimized Intersection Observer for fade-in animations
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px 50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
             observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observe all sections
-document.querySelectorAll('section').forEach(section => {
+// Observe all sections except hero
+document.querySelectorAll('section:not(.hero)').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
     observer.observe(section);
-});
-
-// Active navigation link based on scroll position
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-
-    let current = '';
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-
-        if (window.scrollY >= sectionTop - 100) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.style.borderBottomColor = 'transparent';
-        if (link.getAttribute('href') === `#${current}`) {
-            link.style.borderBottomColor = 'var(--color-accent)';
-        }
-    });
-});
-
-// Add parallax effect to hero section
-window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    const scrolled = window.scrollY;
-
-    if (hero && scrolled < window.innerHeight) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        hero.style.opacity = 1 - (scrolled / 800);
-    }
 });
