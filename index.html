@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Romero Jorge - La mejor forma de predecir el futuro es construyéndolo</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chatbot.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -271,6 +272,20 @@
         </div>
     </footer>
 
+    <!-- Chatbot Widget -->
+    <div id="chatbot-container"></div>
+
     <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+    <script>
+        // Load chatbot HTML
+        fetch('chatbot.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('chatbot-container').innerHTML = html;
+                // Re-initialize chatbot after HTML is loaded
+                new ChatbotRomeroJorge();
+            });
+    </script>
 </body>
 </html>
