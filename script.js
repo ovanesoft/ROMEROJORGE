@@ -203,6 +203,10 @@ const palettes = {
     lime: {
         accent: '#84cc16',
         name: 'Lima vibrante'
+    },
+    france: {
+        accent: '#0066FF',
+        name: 'Azul Francia'
     }
 };
 

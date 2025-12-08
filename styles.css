@@ -71,6 +71,24 @@ img {
     justify-content: flex-end;
 }
 
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
+.logo-navbar {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
@@ -357,6 +375,10 @@ img {
     background: var(--color-secondary);
     transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.team-showcase .btn {
+    margin-top: 2rem;
 }
 
 .showcase-title {
