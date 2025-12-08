@@ -60,6 +60,15 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .logo {
@@ -106,6 +115,87 @@ img {
     background: var(--color-white);
     margin: 3px 0;
     transition: var(--transition);
+}
+
+/* Color Palette Selector */
+.color-palette-selector {
+    position: relative;
+    margin-left: 1rem;
+}
+
+.palette-toggle {
+    background: var(--color-accent);
+    border: 2px solid var(--color-accent);
+    color: var(--color-white);
+    font-size: 1.8rem;
+    width: 35px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.palette-toggle:hover {
+    background: var(--color-white);
+    color: var(--color-accent);
+    transform: scale(1.05);
+}
+
+.palette-options {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: var(--color-white);
+    border-radius: 10px;
+    padding: 0.75rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 1000;
+}
+
+.palette-options.active {
+    display: flex;
+}
+
+.palette-option {
+    width: 45px;
+    height: 28px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0;
+    background: transparent;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.palette-option span {
+    width: 45px;
+    height: 28px;
+    border-radius: 4px;
+    display: block;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.palette-option:hover {
+    transform: scale(1.1);
+}
+
+.palette-option:hover span {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.palette-option.active {
+    border-color: var(--color-white);
+    border-width: 3px;
 }
 
 /* Hero Section */
@@ -182,12 +272,15 @@ img {
 .btn-primary {
     background: var(--color-accent);
     color: var(--color-primary);
+    border: 2px solid var(--color-accent);
 }
 
 .btn-primary:hover {
-    background: #d4b574;
+    background: var(--color-white);
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(201, 169, 97, 0.4);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
@@ -732,6 +825,21 @@ img {
 
     .menu-toggle {
         display: flex;
+    }
+
+    .color-palette-selector {
+        margin-right: 0.5rem;
+    }
+
+    .palette-toggle {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+
+    .palette-options {
+        top: 45px;
+        right: -10px;
     }
 
     .nav-menu {

@@ -11,18 +11,61 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">ROMERO JORGE</a>
-            <ul class="nav-menu">
-                <li><a href="index.html#inicio">Inicio</a></li>
-                <li><a href="index.html#quienes-somos">Quiénes Somos</a></li>
-                <li><a href="index.html#areas">Áreas</a></li>
-                <li><a href="index.html#proyectos">Proyectos</a></li>
-                <li><a href="index.html#sumate">Súmate</a></li>
-            </ul>
-            <button class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div style="display: flex; align-items: center; gap: 2rem;">
+                <ul class="nav-menu">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#quienes-somos">Quiénes Somos</a></li>
+                    <li><a href="index.html#areas">Áreas</a></li>
+                    <li><a href="index.html#proyectos">Proyectos</a></li>
+                    <li><a href="index.html#sumate">Súmate</a></li>
+                </ul>
+                <div class="color-palette-selector">
+                    <button class="palette-toggle" id="paletteToggle" title="Cambiar colores"></button>
+                    <div class="palette-options" id="paletteOptions">
+                        <button class="palette-option" data-palette="gold" title="Dorado clásico">
+                            <span style="background: #c9a961"></span>
+                        </button>
+                        <button class="palette-option" data-palette="emerald" title="Verde esmeralda">
+                            <span style="background: #2d7d6e"></span>
+                        </button>
+                        <button class="palette-option" data-palette="sapphire" title="Azul zafiro">
+                            <span style="background: #2962a3"></span>
+                        </button>
+                        <button class="palette-option" data-palette="burgundy" title="Borgoña">
+                            <span style="background: #8b3a3a"></span>
+                        </button>
+                        <button class="palette-option" data-palette="bronze" title="Bronce oscuro">
+                            <span style="background: #8b6f47"></span>
+                        </button>
+                        <button class="palette-option" data-palette="slate" title="Gris pizarra">
+                            <span style="background: #647687"></span>
+                        </button>
+                        <button class="palette-option" data-palette="coral" title="Coral vibrante">
+                            <span style="background: #ff6b6b"></span>
+                        </button>
+                        <button class="palette-option" data-palette="teal" title="Turquesa eléctrico">
+                            <span style="background: #00b8a9"></span>
+                        </button>
+                        <button class="palette-option" data-palette="purple" title="Púrpura imperial">
+                            <span style="background: #7b2cbf"></span>
+                        </button>
+                        <button class="palette-option" data-palette="amber" title="Ámbar brillante">
+                            <span style="background: #f59e0b"></span>
+                        </button>
+                        <button class="palette-option" data-palette="crimson" title="Carmesí intenso">
+                            <span style="background: #dc143c"></span>
+                        </button>
+                        <button class="palette-option" data-palette="lime" title="Lima vibrante">
+                            <span style="background: #84cc16"></span>
+                        </button>
+                    </div>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 

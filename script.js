@@ -95,28 +95,30 @@ window.addEventListener('scroll', () => {
 // Form submission handler
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    // Get form data
-    const formData = {
-        nombre: document.getElementById('nombre').value,
-        email: document.getElementById('email').value,
-        telefono: document.getElementById('telefono').value,
-        perfil: document.getElementById('perfil').value,
-        mensaje: document.getElementById('mensaje').value
-    };
+        // Get form data
+        const formData = {
+            nombre: document.getElementById('nombre').value,
+            email: document.getElementById('email').value,
+            telefono: document.getElementById('telefono').value,
+            perfil: document.getElementById('perfil').value,
+            mensaje: document.getElementById('mensaje').value
+        };
 
-    // Here you would typically send the data to a server
-    // For now, we'll just log it and show a success message
-    console.log('Form submitted:', formData);
+        // Here you would typically send the data to a server
+        // For now, we'll just log it and show a success message
+        console.log('Form submitted:', formData);
 
-    // Show success message
-    alert('¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.');
+        // Show success message
+        alert('¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.');
 
-    // Reset form
-    contactForm.reset();
-});
+        // Reset form
+        contactForm.reset();
+    });
+}
 
 // Optimized Intersection Observer for fade-in animations
 const observerOptions = {
@@ -141,3 +143,125 @@ document.querySelectorAll('section:not(.hero)').forEach(section => {
     section.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
     observer.observe(section);
 });
+
+// Color Palette Selector
+const paletteToggle = document.getElementById('paletteToggle');
+const paletteOptions = document.getElementById('paletteOptions');
+const paletteButtons = document.querySelectorAll('.palette-option');
+
+// Only run if palette selector exists
+if (!paletteToggle || !paletteOptions || paletteButtons.length === 0) {
+    console.log('Palette selector not found on this page');
+}
+
+// Define color palettes
+const palettes = {
+    gold: {
+        accent: '#c9a961',
+        name: 'Dorado clásico'
+    },
+    emerald: {
+        accent: '#2d7d6e',
+        name: 'Verde esmeralda'
+    },
+    sapphire: {
+        accent: '#2962a3',
+        name: 'Azul zafiro'
+    },
+    burgundy: {
+        accent: '#8b3a3a',
+        name: 'Borgoña'
+    },
+    bronze: {
+        accent: '#8b6f47',
+        name: 'Bronce oscuro'
+    },
+    slate: {
+        accent: '#647687',
+        name: 'Gris pizarra'
+    },
+    coral: {
+        accent: '#ff6b6b',
+        name: 'Coral vibrante'
+    },
+    teal: {
+        accent: '#00b8a9',
+        name: 'Turquesa eléctrico'
+    },
+    purple: {
+        accent: '#7b2cbf',
+        name: 'Púrpura imperial'
+    },
+    amber: {
+        accent: '#f59e0b',
+        name: 'Ámbar brillante'
+    },
+    crimson: {
+        accent: '#dc143c',
+        name: 'Carmesí intenso'
+    },
+    lime: {
+        accent: '#84cc16',
+        name: 'Lima vibrante'
+    }
+};
+
+// Toggle palette menu
+if (paletteToggle) {
+    paletteToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        paletteOptions.classList.toggle('active');
+    });
+}
+
+// Close palette menu when clicking outside
+if (paletteOptions) {
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.color-palette-selector')) {
+            paletteOptions.classList.remove('active');
+        }
+    });
+}
+
+// Load saved palette (always run this to apply saved color)
+const savedPalette = localStorage.getItem('colorPalette') || 'gold';
+applyPalette(savedPalette);
+
+// Apply palette when clicking buttons
+if (paletteButtons.length > 0) {
+    paletteButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const palette = button.getAttribute('data-palette');
+            applyPalette(palette);
+            localStorage.setItem('colorPalette', palette);
+            if (paletteOptions) {
+                paletteOptions.classList.remove('active');
+            }
+        });
+    });
+}
+
+// Function to apply palette
+function applyPalette(paletteName) {
+    const palette = palettes[paletteName];
+    if (palette) {
+        document.documentElement.style.setProperty('--color-accent', palette.accent);
+
+        // Remove inline styles to let CSS variables work (only if element exists)
+        if (paletteToggle) {
+            paletteToggle.style.background = '';
+            paletteToggle.style.borderColor = '';
+        }
+
+        // Update active state on buttons (only if buttons exist)
+        if (paletteButtons.length > 0) {
+            paletteButtons.forEach(btn => {
+                if (btn.getAttribute('data-palette') === paletteName) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+    }
+}
