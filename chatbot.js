@@ -185,7 +185,6 @@ Respondé siempre como este asistente, manteniendo el tono y siguiendo estas pau
 class ChatbotRomeroJorge {
     constructor() {
         this.messages = [];
-        this.apiKey = '';
         this.isLoading = false;
 
         // DOM elements
@@ -196,9 +195,6 @@ class ChatbotRomeroJorge {
         this.messagesContainer = document.getElementById('chatbot-messages');
         this.input = document.getElementById('chatbot-input');
         this.sendBtn = document.getElementById('chatbot-send-btn');
-        this.apiSetup = document.getElementById('chatbot-api-setup');
-        this.apiInput = document.getElementById('chatbot-api-input');
-        this.saveKeyBtn = document.getElementById('chatbot-save-key-btn');
 
         this.init();
     }
@@ -212,7 +208,6 @@ class ChatbotRomeroJorge {
         this.closeBtn.addEventListener('click', () => this.closeChat());
         this.clearBtn.addEventListener('click', () => this.clearHistory());
         this.sendBtn.addEventListener('click', () => this.sendMessage());
-        this.saveKeyBtn.addEventListener('click', () => this.saveApiKey());
 
         this.input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
@@ -227,31 +222,18 @@ class ChatbotRomeroJorge {
         }
 
         this.renderMessages();
-        this.updateApiSetup();
     }
 
     loadFromLocalStorage() {
         const savedMessages = localStorage.getItem('rj_chat_messages');
-        const savedApiKey = localStorage.getItem('rj_anthropic_api_key');
 
         if (savedMessages) {
             this.messages = JSON.parse(savedMessages);
-        }
-
-        if (savedApiKey) {
-            this.apiKey = savedApiKey;
-        } else if (typeof CHATBOT_CONFIG !== 'undefined' && CHATBOT_CONFIG.apiKey) {
-            // Load from config file if available
-            this.apiKey = CHATBOT_CONFIG.apiKey;
-            localStorage.setItem('rj_anthropic_api_key', this.apiKey);
         }
     }
 
     saveToLocalStorage() {
         localStorage.setItem('rj_chat_messages', JSON.stringify(this.messages));
-        if (this.apiKey) {
-            localStorage.setItem('rj_anthropic_api_key', this.apiKey);
-        }
     }
 
     addWelcomeMessage() {
@@ -271,24 +253,6 @@ class ChatbotRomeroJorge {
     closeChat() {
         this.window.style.display = 'none';
         this.toggleBtn.style.display = 'flex';
-    }
-
-    updateApiSetup() {
-        if (this.apiKey) {
-            this.apiSetup.style.display = 'none';
-        } else {
-            this.apiSetup.style.display = 'block';
-        }
-    }
-
-    saveApiKey() {
-        const key = this.apiInput.value.trim();
-        if (key) {
-            this.apiKey = key;
-            this.saveToLocalStorage();
-            this.updateApiSetup();
-            this.apiInput.value = '';
-        }
     }
 
     clearHistory() {
@@ -354,12 +318,6 @@ class ChatbotRomeroJorge {
 
         if (!text || this.isLoading) return;
 
-        if (!this.apiKey) {
-            alert('Por favor configurá tu API Key de Anthropic primero');
-            this.apiSetup.style.display = 'block';
-            return;
-        }
-
         // Add user message
         this.messages.push({
             role: 'user',
@@ -384,16 +342,17 @@ class ChatbotRomeroJorge {
             }));
 
         try {
-            const response = await fetch('https://api.anthropic.com/v1/messages', {
+            // Use backend proxy to protect API key
+            const backendUrl = window.location.hostname === 'localhost'
+                ? 'http://localhost:3000/api/chat'  // Local development
+                : '/api/chat';  // Production (Vercel)
+
+            const response = await fetch(backendUrl, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'x-api-key': this.apiKey,
-                    'anthropic-version': '2023-06-01'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    model: 'claude-sonnet-4-20250514',
-                    max_tokens: 1024,
                     system: SYSTEM_PROMPT,
                     messages: apiMessages
                 })
