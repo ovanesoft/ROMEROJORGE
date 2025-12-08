@@ -240,6 +240,10 @@ class ChatbotRomeroJorge {
 
         if (savedApiKey) {
             this.apiKey = savedApiKey;
+        } else if (typeof CHATBOT_CONFIG !== 'undefined' && CHATBOT_CONFIG.apiKey) {
+            // Load from config file if available
+            this.apiKey = CHATBOT_CONFIG.apiKey;
+            localStorage.setItem('rj_anthropic_api_key', this.apiKey);
         }
     }
 
