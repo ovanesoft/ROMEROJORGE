@@ -347,20 +347,26 @@ class ChatbotRomeroJorge {
                 ? 'http://localhost:3000/api/chat'  // Local development
                 : '/api/chat';  // Production (Vercel)
 
+            const requestBody = {
+                system: SYSTEM_PROMPT,
+                messages: apiMessages
+            };
+
+            console.log('Sending to backend:', backendUrl);
+            console.log('Request body:', requestBody);
+
             const response = await fetch(backendUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    system: SYSTEM_PROMPT,
-                    messages: apiMessages
-                })
+                body: JSON.stringify(requestBody)
             });
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.error?.message || 'Error en la API de Claude');
+                console.error('Backend error response:', errorData);
+                throw new Error(errorData.error || errorData.message || 'Error en la API de Claude');
             }
 
             const data = await response.json();
