@@ -1,1 +1,7 @@
-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
+// Chatbot Configuration
+// This file contains the API key for testing
+// DO NOT commit this file to GitHub
+
+const CHATBOT_CONFIG = {
+    apiKey: 'PLACEHOLDER_NOT_USED_ANYMORE'
+};

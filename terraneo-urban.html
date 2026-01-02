@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terráneo Urban SRL - Constructora de Desarrollos Inmobiliarios</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="terraneo-urban.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="LOGO RJ BOX.jpg" alt="Romero Jorge Logo" class="logo-navbar">
+                <div class="logo">ROMERO JORGE</div>
+            </a>
+            <div style="display: flex; align-items: center; gap: 2rem;">
+                <ul class="nav-menu">
+                    <li><a href="index.html#inicio">INICIO</a></li>
+                    <li><a href="index.html#quienes-somos">QUIÉNES SOMOS</a></li>
+                    <li><a href="index.html#areas">ÁREAS DE NEGOCIO</a></li>
+                    <li><a href="terraneo-urban.html" class="active">TERRÁNEO URBAN</a></li>
+                    <li><a href="index.html#sumate">SÚMATE</a></li>
+                </ul>
+                <div class="color-palette-selector">
+                    <button class="palette-toggle" id="paletteToggle" title="Cambiar colores"></button>
+                    <div class="palette-options" id="paletteOptions">
+                        <button class="palette-option" data-palette="gold" title="Dorado clásico">
+                            <span style="background: #c9a961"></span>
+                        </button>
+                        <button class="palette-option" data-palette="emerald" title="Verde esmeralda">
+                            <span style="background: #2d7d6e"></span>
+                        </button>
+                        <button class="palette-option" data-palette="sapphire" title="Azul zafiro">
+                            <span style="background: #2962a3"></span>
+                        </button>
+                        <button class="palette-option" data-palette="burgundy" title="Borgoña">
+                            <span style="background: #8b3a3a"></span>
+                        </button>
+                        <button class="palette-option" data-palette="bronze" title="Bronce oscuro">
+                            <span style="background: #8b6f47"></span>
+                        </button>
+                        <button class="palette-option" data-palette="slate" title="Gris pizarra">
+                            <span style="background: #647687"></span>
+                        </button>
+                        <button class="palette-option" data-palette="coral" title="Coral vibrante">
+                            <span style="background: #ff6b6b"></span>
+                        </button>
+                        <button class="palette-option" data-palette="teal" title="Turquesa eléctrico">
+                            <span style="background: #00b8a9"></span>
+                        </button>
+                        <button class="palette-option" data-palette="purple" title="Púrpura imperial">
+                            <span style="background: #7b2cbf"></span>
+                        </button>
+                        <button class="palette-option" data-palette="amber" title="Ámbar brillante">
+                            <span style="background: #f59e0b"></span>
+                        </button>
+                        <button class="palette-option" data-palette="crimson" title="Carmesí intenso">
+                            <span style="background: #dc143c"></span>
+                        </button>
+                        <button class="palette-option" data-palette="lime" title="Lima vibrante">
+                            <span style="background: #84cc16"></span>
+                        </button>
+                        <button class="palette-option" data-palette="france" title="Azul Francia">
+                            <span style="background: #0066FF"></span>
+                        </button>
+                    </div>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero terraneo-hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="WhatsApp Video 2025-12-17 at 14.38.55.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="logo-main">
+                <h1 class="terraneo-title">TERRÁNEO URBAN SRL</h1>
+                <p class="tagline">Construyendo espacios, transformando ciudades</p>
+            </div>
+            <div class="hero-message">
+                <p>La constructora detrás de cada proyecto, donde la experiencia se convierte en realidad.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos Section -->
+    <section class="about-terraneo">
+        <div class="container">
+            <h2>LA CONSTRUCTORA QUE DA VIDA A TUS PROYECTOS</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead-text">
+                        Terráneo Urban SRL es la constructora especializada que ejecuta y materializa cada desarrollo inmobiliario con precisión técnica, calidad superior y cumplimiento de plazos.
+                    </p>
+                    <p>
+                        Somos el motor técnico y operativo detrás de cada proyecto. Desde la excavación hasta la entrega de llaves, asumimos el compromiso integral de construcción, articulando equipos profesionales, tecnología constructiva de vanguardia y una gestión de obra transparente y eficiente.
+                    </p>
+                    <p>
+                        Nuestra experiencia abarca más de 60 unidades entregadas en los últimos 3 años, con obras que van desde edificios de 3 hasta 7 pisos en las zonas estratégicas del Gran Buenos Aires, y con proyección de expansión hacia Capital Federal.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise">
+        <div class="container">
+            <h2>NUESTRA EXPERTISE</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">🏗️</div>
+                    <h3>Gestión Integral de Obra</h3>
+                    <p>Planificación, ejecución y control de cada etapa constructiva con metodología probada y equipos especializados.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">📐</div>
+                    <h3>Calidad Técnica</h3>
+                    <p>Cumplimiento estricto de normativas municipales, códigos de edificación y estándares de calidad en materiales y terminaciones.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">⏱️</div>
+                    <h3>Cumplimiento de Plazos</h3>
+                    <p>Cronogramas realistas con márgenes de tolerancia controlados. La demora no es una opción, es un compromiso.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">🔍</div>
+                    <h3>Transparencia Total</h3>
+                    <p>Seguimiento fotográfico, visitas de obra coordinadas y comunicación constante sobre el avance de cada desarrollo.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">👷</div>
+                    <h3>Equipos Profesionales</h3>
+                    <p>Arquitectos, ingenieros, maestros mayores de obra y técnicos especializados trabajando en coordinación permanente.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">🎯</div>
+                    <h3>Foco en el Detalle</h3>
+                    <p>Desde las instalaciones eléctricas y sanitarias hasta las terminaciones finales, cada elemento es supervisado y ejecutado con excelencia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestro Proceso Section -->
+    <section class="process">
+        <div class="container">
+            <h2>NUESTRO PROCESO CONSTRUCTIVO</h2>
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Preparación del Terreno</h3>
+                        <p>Estudios de suelo, excavación y fundaciones con tecnología de punta y análisis técnico exhaustivo.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>Estructura y Levantamiento</h3>
+                        <p>Construcción de estructura de hormigón armado, losas, columnas y muros siguiendo planos aprobados.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>Instalaciones</h3>
+                        <p>Ejecución de sistemas eléctricos, sanitarios, de gas y telecomunicaciones con materiales certificados.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Terminaciones</h3>
+                        <p>Colocación de pisos porcelanato, griferías Piazza/Ferrum, pintura, carpintería y todos los detalles finales.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">5</div>
+                    <div class="timeline-content">
+                        <h3>Entrega y Posventa</h3>
+                        <p>Inspección final, acta de entrega y garantía de construcción con seguimiento postventa profesional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cifras Section -->
+    <section class="stats">
+        <div class="container">
+            <h2>TERRÁNEO URBAN EN NÚMEROS</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">60+</div>
+                    <div class="stat-label">Unidades Entregadas</div>
+                    <div class="stat-description">En los últimos 3 años</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Pisos Máximos</div>
+                    <div class="stat-description">En edificios construidos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Desarrolladoras</div>
+                    <div class="stat-description">REN, Elite Design, Terráneo</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Cumplimiento</div>
+                    <div class="stat-description">En entregas comprometidas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicaciones Section -->
+    <section class="locations">
+        <div class="container">
+            <h2>DÓNDE CONSTRUIMOS</h2>
+            <div class="locations-content">
+                <div class="location-card">
+                    <h3>Partido de San Martín</h3>
+                    <p>Zona de alto crecimiento inmobiliario con excelente conectividad y servicios.</p>
+                </div>
+                <div class="location-card">
+                    <h3>Partido de Tres de Febrero</h3>
+                    <p>Ubicación estratégica con valorización constante y demanda sostenida.</p>
+                </div>
+                <div class="location-card location-card-featured">
+                    <h3>Próximamente: Capital Federal</h3>
+                    <p>Expansión planificada hacia desarrollos en la Ciudad Autónoma de Buenos Aires.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿TENÉS UN PROYECTO EN MENTE?</h2>
+            <p>Somos la constructora que lo hace realidad con profesionalismo, transparencia y cumplimiento garantizado.</p>
+            <div class="cta-buttons">
+                <a href="index.html#sumate" class="btn btn-primary">Trabajar con Nosotros</a>
+                <a href="index.html#areas" class="btn btn-secondary">Conocer Proyectos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>WhatsApp: <a href="https://wa.me/541138565490">+54 11 3856-5490</a></p>
+                    <p>Teléfono: 11 3856-5490</p>
+                    <p>Email: <a href="mailto:consultas@romerojorge.com">consultas@romerojorge.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Ubicación</h4>
+                    <p>Marco Polo 5510 4C, Villa Bosch</p>
+                    <p>Partido de 3 de Febrero, Buenos Aires</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Terráneo Urban SRL</h4>
+                    <p>Constructora especializada</p>
+                    <p>Desarrollos inmobiliarios</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociales</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Terráneo Urban SRL - Romero Jorge. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
